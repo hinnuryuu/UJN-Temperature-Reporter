@@ -2,8 +2,15 @@
 import json
 import time
 
+import requests
+
 import report
 import database_manager
+
+
+def server_chan(log: str) -> None:
+    requests.post("https://sctapi.ftqq.com/YOUR_API_KEY.send?title={}&desp={}"
+                  .format("体温填报情况-{}".format(time.strftime("%Y年%m月%d日"), time.localtime()), log))
 
 
 class Task:
@@ -12,7 +19,7 @@ class Task:
         self.current_password = None
         self.message = None
         self.person = None
-        self.log = "程序运行时间:%s\n" + time.strftime("%Y-%m-%d", time.localtime())
+        self.log = "程序运行时间:%s\n" % time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())
         self.data = database_manager.parse_database()
 
     def process(self) -> None:
@@ -26,6 +33,7 @@ class Task:
             self.check()
         with open('log.txt', 'w', encoding='utf-8') as f:
             f.write(self.log)
+        server_chan(self.log)
 
     def check(self) -> None:
         if self.message['status'] == 1:
