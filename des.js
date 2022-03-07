@@ -1,3 +1,7 @@
+/* 
+ * encrypt the string to string made up of hex 
+ * return the encrypted string 
+ */
 function strEnc(data,firstKey,secondKey,thirdKey){  
   
  var leng = data.length;  
