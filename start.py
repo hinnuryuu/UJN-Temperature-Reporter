@@ -3,7 +3,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from task import Task
 
 
-def job():
+def job() -> None:
     t = Task()
     t.process()
 
