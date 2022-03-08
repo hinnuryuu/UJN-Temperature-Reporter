@@ -24,9 +24,9 @@ class Task:
 
     def process(self) -> None:
         for user in self.data['data']:
-            print("当前正在填报用户:%s" % user['username'])
             self.current_username = user['username']
             self.current_password = user['password']
+            print("当前正在填报用户:%s" % self.current_username)
             self.person = report.Reporter(self.current_username, self.current_password)
             self.person.get_cookies()
             self.message = eval(str(json.loads(self.person.report_temperature())))
@@ -37,10 +37,10 @@ class Task:
 
     def check(self) -> None:
         if self.message['status'] == 1:
-            log = "用户:%s的今日体温填报成功!\n" % self.current_username
+            log = "\n用户:%s的今日体温填报成功!\n" % self.current_username
             self.log += log
         else:
-            log = "用户:%s的体温填报失败,原因如下:%s\n" % (self.current_username, self.message['msg'])
+            log = "\n用户:%s的体温填报失败,原因如下:%s\n" % (self.current_username, self.message['msg'])
             self.log += log
 
 
