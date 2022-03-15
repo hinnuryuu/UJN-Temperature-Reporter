@@ -5,6 +5,8 @@ import time
 import execjs
 import requests
 
+import des
+
 
 class Reporter:
     def __init__(self, username: str, password: str) -> None:
@@ -27,10 +29,9 @@ class Reporter:
                              headers=headers)
         cookies = r.cookies
         lt = str(re.search(pattern, r.text).group(0))
-        with open("des.js", "r") as f:
-            js = f.read()
-            compile_js = execjs.compile(js)
-            rsa = compile_js.call("strEnc", self.username + self.password + lt, '1', '2', '3')
+        js = des.des_js_code
+        compile_js = execjs.compile(js)
+        rsa = compile_js.call("strEnc", self.username + self.password + lt, '1', '2', '3')
 
         params = {
             "rsa": str(rsa),
