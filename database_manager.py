@@ -43,10 +43,14 @@ def write_database(info: dict) -> None:
 
 
 def append_database(username: str, password: str) -> None:
-    new_user = {'username': username, 'password': password}
-    information = parse_database()
-    information['data'].append(new_user)
-    write_database(information)
+    if search_database(username)[0]:
+        print("该用户已在此数据库中!")
+        exit(0)
+    else:
+        new_user = {'username': username, 'password': password}
+        information = parse_database()
+        information['data'].append(new_user)
+        write_database(information)
 
 
 def remove_database(username: str) -> None:
