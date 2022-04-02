@@ -5,7 +5,7 @@ UJN体温填报脚本，可用于生产环境的版本
 测试环境:Windows 10 21H2 + Python 3.9
 
 
-需要的库有:execjs + requests + apschedule
+需要的库有:execjs + requests + apschedule + flask
 
 
 该脚本仅供学习，请遵照当地疫情防疫，每日按时填报自己的体温
@@ -24,3 +24,6 @@ requests库：这个库的厉害之处是不言而喻的，主要就是用来pos
 
 
 apschedule库：想要在Windows下创建一个任务计划对我而言是比较麻烦的，所以这个库是帮我解决每天定时执行的一个库
+
+
+flask库(可选)：生成一个监控页面
