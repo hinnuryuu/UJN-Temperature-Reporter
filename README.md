@@ -1,4 +1,4 @@
-# UJN-Temperatue-Reporter
+# UJN-Temperature-Reporter
 UJN体温填报脚本，可用于生产环境的版本
 
 
