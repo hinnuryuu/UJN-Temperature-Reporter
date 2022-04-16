@@ -33,13 +33,10 @@ def parse_database() -> dict:
 
 
 def write_database(info: dict) -> None:
-    if find_database():
-        with open("users.json", "w", encoding="utf-8") as f:
-            information = json.dumps(info, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ':'))
-            f.write(information)
-        print("数据库更新成功!")
-    else:
-        print("数据库更新失败!")
+    with open("users.json", "w", encoding="utf-8") as f:
+        information = json.dumps(info, ensure_ascii=False, sort_keys=False, indent=4, separators=(',', ':'))
+        f.write(information)
+    print("数据库更新成功!")
 
 
 def append_database(username: str, password: str) -> None:
@@ -57,7 +54,7 @@ def remove_database(username: str) -> None:
     information = parse_database()
     search_answer = search_database(username)
     if search_answer[0]:
-        del(information['data'][search_answer[1]])
+        del (information['data'][search_answer[1]])
     else:
         print("该用户没有在此数据库中!")
         exit(0)
