@@ -31,6 +31,9 @@ flask库(可选)：生成一个监控页面
 使用方法：
 
 前置库的安装：pip install execjs requests apschedule flask
+
 database_manager.py 用于用户管理，在里面输入智慧济大学号，密码
+
 task.py 主程序，体温填报任务的控制
+
 start.py 计划填报程序，持续运行，每晚6点触发
