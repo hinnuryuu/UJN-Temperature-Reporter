@@ -27,3 +27,7 @@ apschedule库：想要在Windows下创建一个任务计划对我而言是比较
 
 
 flask库(可选)：生成一个监控页面
+
+使用方法：
+
+前置库的安装：pip install execjs requests apschedule flask
