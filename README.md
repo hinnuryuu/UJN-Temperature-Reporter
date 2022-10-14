@@ -17,7 +17,7 @@ UJN体温填报脚本，可用于生产环境的版本
 关于第三方库的介绍：
 
 
-des.js + execjs库：用于登录的RSA加密算法，该网站的加密方式是通过加密函数strEnc实现的，加密公式如下:strEnc(username+password, '1', '2', '3')，进而得到加密字符串rsa
+des.js + pyexecjs库：用于登录的RSA加密算法，该网站的加密方式是通过加密函数strEnc实现的，加密公式如下:strEnc(username+password, '1', '2', '3')，进而得到加密字符串rsa
 
 
 requests库：这个库的厉害之处是不言而喻的，主要就是用来post和get请求的
@@ -30,7 +30,7 @@ flask库(可选)：生成一个监控页面
 
 使用方法：
 
-前置库的安装：pip install execjs requests apschedule flask
+前置库的安装：pip install pyexecjs requests apschedule flask
 
 database_manager.py 用于用户管理，在里面输入智慧济大学号，密码
 
